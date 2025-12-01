@@ -1,0 +1,38 @@
+﻿<Window x:Class="LogManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Log Manager" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Ред 0 – въвеждане на лог -->
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,10">
+            <TextBlock Text="Съобщение:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <TextBox x:Name="MessageTextBox" Width="300" Margin="0,0,10,0"/>
+
+            <TextBlock Text="Ниво:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+            <ComboBox x:Name="LevelComboBox" Width="120" Margin="0,0,10,0">
+                <ComboBoxItem Content="Info"/>
+                <ComboBoxItem Content="Warning"/>
+                <ComboBoxItem Content="Error"/>
+            </ComboBox>
+
+            <Button Content="Запиши" Width="100" Click="LogButton_Click"/>
+        </StackPanel>
+
+        <!-- Ред 1 – бутони за зареждане -->
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,0,0,10">
+            <Button Content="Всички логове" Width="120" Margin="0,0,10,0" Click="LoadAllButton_Click"/>
+            <Button Content="Само Info" Width="100" Margin="0,0,10,0" Click="LoadInfoButton_Click"/>
+            <Button Content="Само Warning" Width="120" Margin="0,0,10,0" Click="LoadWarningButton_Click"/>
+            <Button Content="Само Error" Width="100" Click="LoadErrorButton_Click"/>
+        </StackPanel>
+
+        <!-- Ред 2 – списък с логове -->
+        <ListBox x:Name="LogsListBox" Grid.Row="2"/>
+    </Grid>
+</Window>
